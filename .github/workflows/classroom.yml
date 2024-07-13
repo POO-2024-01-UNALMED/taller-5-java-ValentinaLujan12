@@ -1,6 +1,5 @@
 name: Autograding Tests
 'on':
-- push
 - workflow_dispatch
 - repository_dispatch
 permissions:
@@ -16,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Test constructores
       id: test-constructores
-      uses: education/autograding-command-grader@v1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Test constructores
         setup-command: ''
@@ -25,7 +24,7 @@ jobs:
         max-score: 17
     - name: Test retornos
       id: test-retornos
-      uses: education/autograding-command-grader@v1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Test retornos
         setup-command: ''
@@ -34,7 +33,7 @@ jobs:
         max-score: 16
     - name: Test cantidades
       id: test-cantidades
-      uses: education/autograding-command-grader@v1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Test cantidades
         setup-command: ''
@@ -42,7 +41,7 @@ jobs:
         timeout: 10
         max-score: 17
     - name: Autograding Reporter
-      uses: education/autograding-grading-reporter@v1
+      uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-CONSTRUCTORES_RESULTS: "${{steps.test-constructores.outputs.result}}"
         TEST-RETORNOS_RESULTS: "${{steps.test-retornos.outputs.result}}"
